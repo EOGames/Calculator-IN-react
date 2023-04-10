@@ -10,6 +10,8 @@ const gradient_color1 = useRef('');
 const gradient_color2 = useRef('');
 const color_deg = useRef('');
 
+const calculatorButtonColor = useRef('');
+
 
   const HandleClick = (e)=>
   {
@@ -75,6 +77,16 @@ const color_deg = useRef('');
       //console.log('Gradient Color1 '+ gradient_color1.current.value + "Color2 " + gradient_color2.current.value);
     }
 
+    const ChangeCalculatorButtons = () =>
+    {
+      let btns = document.querySelector('table').querySelectorAll('button');
+
+      for(let i=0; i<btns.length; i++)
+      {
+        btns[i].style.backgroundColor = `${calculatorButtonColor.current.value}`;
+      }
+    }
+
   return (
     <div className="App">
 
@@ -86,7 +98,7 @@ const color_deg = useRef('');
       <div>Gradient Maker for Background
         <input type="color" onChange={MakeGradientAndAppyItIntoBody} ref={gradient_color1} />
         <input type="color" onChange={MakeGradientAndAppyItIntoBody} ref={gradient_color2} />
-        <input type="text" onChange={MakeGradientAndAppyItIntoBody} placeholder='Enter Angle' ref={color_deg} />
+        <input className='angleInput' type="text" onChange={MakeGradientAndAppyItIntoBody} placeholder='Enter Angle' defaultValue={'90'} ref={color_deg} />
       </div>
       <div>
          Toggle <ReactSwitch offHandleColor='#ffff' offColor='#7e0000' checked={checked} onChange={HandleToggle}/>
@@ -101,6 +113,7 @@ const color_deg = useRef('');
           <div className="CalculatorHolder">
 
             <form name='form1' action="submit">
+              Change Calculator Buttons Color<input Value={'#42b9e9'} ref={calculatorButtonColor} onChange={ChangeCalculatorButtons} type="color"  />
                 <table>
                   <tbody>
                     <tr>
@@ -140,6 +153,7 @@ const color_deg = useRef('');
                     </tr>
                     <tr>
                     <td><button type="button" onClick={(e) => HandleClick(e.target)}>*</button></td>                      
+                    <td><button type="button" onClick={(e) => HandleClick(e.target)}>.</button></td>                      
                     <td colSpan={2}> <button type="button" onClick={Calculate}>=</button></td>
 
                     </tr>

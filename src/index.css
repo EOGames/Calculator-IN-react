@@ -23,7 +23,7 @@ code {
 .display
 {
   background-color: rgb(169, 221, 241);
-  width: 85%;
+  width: 88%;
   height: 2vh;
   padding: 5%;
   display: flex;
@@ -68,5 +68,22 @@ table button
 .backgroundColorChanger
 {
   box-shadow: 1px 1px 10px black;
-  
+}
+
+h1
+{
+  text-align: center;
+}
+
+button:active
+{
+  background-color: rgb(148, 0, 0);
+}
+
+.angleInput
+{
+  margin-top: 0px;
+  height: 22px;
+  padding: 0px;
+  text-align: center;
 }
